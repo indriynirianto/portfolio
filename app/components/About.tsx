@@ -10,24 +10,32 @@ interface ExperienceItem {
   desc: string;
 }
 
+// EXPERIENCE: data asli Indriyani. Isi [Nama Institusi] dan [Tahun] dengan detail course. Cek ulang tahun project.
 const experiences: ExperienceItem[] = [
   {
-    role: "Freelance Web Developer",
-    place: "Project Pribadi & Client",
-    period: "2024 - Sekarang",
-    desc: "Ngebangun landing page interaktif, web portofolio, dan aplikasi modern buat client & project pribadi. Menggunakan Next.js, React, TypeScript, dan Tailwind CSS dengan fokus pada performa dan UI/UX yang responsif.",
+    role: "Full-Stack AI Project Developer",
+    place: "Lore-AI",
+    period: "2025",
+    desc: "Mengembangkan aplikasi web rekomendasi parfum berbasis kepribadian pengguna dengan integrasi Groq AI, arsitektur backend PHP dan database MySQL, serta panel admin katalog.",
   },
   {
-    role: "Asisten Praktikum Pemrograman",
-    place: "Lab Kampus",
+    role: "Full-Stack Developer (Project)",
+    place: "Hobby Match",
+    period: "2025",
+    desc: "Membangun platform interaksi sosial berbasis minat dengan fitur pencocokan profil, real-time messaging, dan komunikasi audio/video menggunakan React, Node.js, dan Socket.io.",
+  },
+  {
+    role: "Frontend Developer (Campus Project)",
+    place: "Sahabat Cafe",
     period: "2024 - 2025",
-    desc: "Membantu dosen membimbing mahasiswa dalam praktikum dasar pemrograman & struktur data. Ngejelasin konsep-konsep algoritma dengan cara yang simpel biar temen-temen gampang ngerti, sekalian ngelatih pemahaman sendiri.",
+    desc: "Kolaborasi tim semester awal dalam merancang dan mengembangkan website resmi kafe kampus dekat President University menggunakan HTML, CSS, dan JavaScript interaktif.",
   },
   {
-    role: "Staff Divisi Media & Kreatif",
-    place: "Himpunan Mahasiswa",
-    period: "2023 - 2024",
-    desc: "Bikin konten visual interaktif dan materi publikasi buat mendukung event-event kampus. Mengasah skill kolaborasi tim, komunikasi visual, dan manajemen waktu dalam eksekusi project.",
+    // Placeholder institusi & tahun untuk pelatihan / sertifikasi AI
+    role: "Peserta Program dan Sertifikasi AI",
+    place: "[Nama Institusi]",
+    period: "[Tahun]",
+    desc: "Menyelesaikan pelatihan dan sertifikasi bidang Artificial Intelligence (Perempuan Inovasi Artificial) yang berfokus pada inovasi teknologi AI dan implementasi solusi digital cerdas.",
   },
 ];
 
