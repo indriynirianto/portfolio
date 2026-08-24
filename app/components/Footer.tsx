@@ -1,5 +1,12 @@
 "use client";
 
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/indriynirianto", external: true },
+  { label: "LinkedIn", href: "https://linkedin.com", external: true },
+  { label: "Instagram", href: "https://instagram.com/_indryni._", external: true },
+  { label: "Email", href: "mailto:indrynirianto@gmail.com", external: false },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -18,13 +25,15 @@ export default function Footer() {
         </p>
 
         <div className="flex items-center gap-4">
-          {["GitHub", "LinkedIn", "Email"].map((item) => (
+          {socialLinks.map((item) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               className="text-xs text-slate-600 hover:text-slate-400 transition-colors font-medium"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
