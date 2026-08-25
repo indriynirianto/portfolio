@@ -119,19 +119,21 @@ export default function About() {
 
               <div className="space-y-4 text-slate-300 leading-relaxed text-base">
                 <p>
-                  Halo! Gue <span className="text-white font-medium">Indriyani Putri Dwi Irianto</span>, mahasiswi
-                  Computer Science yang lagi fokus belajar bikin aplikasi web modern, dari tampilan frontend sampai
-                  logika backend. Buat gue, ngoding itu kayak main teka-teki: menantang, seru, dan selalu ada hal
-                  baru yang menarik buat dipelajari.
+                  Halo, saya <span className="text-white font-medium">Indriyani Putri Dwi Irianto</span>, mahasiswi
+                  Computer Science di President University yang berfokus pada pengembangan aplikasi web modern,
+                  mencakup antarmuka frontend hingga arsitektur backend. Saya memiliki dedikasi tinggi dalam
+                  memecahkan masalah komputasi dan membangun solusi digital yang efisien serta andal.
                 </p>
                 <p>
-                  Sekarang gue lagi mendalami <span className="text-white font-medium">React, Next.js, dan TypeScript</span>,
-                  sambil ngerjain project-project yang gue publish di GitHub. Kadang suka eksplor UI/UX design juga,
-                  karena gue percaya kode yang bersih harus dibungkus tampilan yang intuitif dan enak dilihat.
+                  Saat ini saya aktif mendalami <span className="text-white font-medium">React, Next.js, dan TypeScript</span> melalui
+                  berbagai proyek yang dipublikasikan secara berkala di GitHub. Selain penulisan kode yang terstruktur,
+                  saya juga memiliki minat kuat pada desain UI/UX untuk memastikan setiap aplikasi menghadirkan antarmuka
+                  yang intuitif dan pengalaman pengguna yang optimal.
                 </p>
                 <p>
-                  Di luar dunia ngoding, gue suka jalan-jalan, hunting tempat aesthetic, dan quality time sama
-                  orang-orang tersayang. Kalau mau kenal lebih dekat atau sekadar ngobrol santai, mampir aja ke Instagram gue! ✨
+                  Saya selalu antusias untuk mempelajari teknologi baru, memperluas wawasan rekayasa perangkat lunak,
+                  serta berkolaborasi dalam proyek dan kesempatan profesional. Silakan terhubung lebih lanjut melalui
+                  tautan yang tersedia.
                 </p>
               </div>
             </motion.div>
