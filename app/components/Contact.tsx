@@ -98,7 +98,7 @@ export default function Contact() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
                   </svg>
                 </div>
-                <p className="text-slate-300 text-sm font-medium">Message sent! I&apos;ll get back to you soon. ✨</p>
+                <p className="text-slate-300 text-sm font-medium">Message sent! I will get back to you soon.</p>
                 <button onClick={() => setStatus("idle")} className="text-xs text-blue-400 hover:text-blue-300 underline transition-colors">
                   Send another
                 </button>

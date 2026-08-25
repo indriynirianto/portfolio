@@ -80,7 +80,7 @@ export default function About() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            <span className="gradient-heading">Kenalan dulu, yuk.</span>
+            <span className="gradient-heading">Tentang Saya</span>
           </h2>
         </motion.div>
 
@@ -133,7 +133,7 @@ export default function About() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
               <h3 className="text-xl md:text-2xl font-semibold mb-5 text-white leading-snug">
-                Computer Science student yang suka bikin hal-hal keren dari nol. 👩‍💻
+                Mahasiswi Computer Science yang antusias membangun solusi digital dari nol.
               </h3>
 
               <div className="space-y-4 text-slate-300 leading-relaxed text-base">
@@ -255,10 +255,7 @@ export default function About() {
                   </span>
                 </div>
                 <p className="text-sm text-slate-300 leading-relaxed mt-3">
-                  Lagi nempuh S1 Computer Science di President University — fokus
-                  bikin aplikasi web modern dari frontend sampai backend, sambil
-                  eksplor AI, algoritma, dan UI/UX design lewat project-project
-                  kuliah yang seru.
+                  Saat ini menempuh S1 Computer Science di President University dengan fokus pada pengembangan aplikasi web modern, dari frontend hingga backend, serta eksplorasi bidang AI, algoritma, dan desain UI/UX melalui berbagai proyek kuliah.
                 </p>
               </div>
             </motion.div>
