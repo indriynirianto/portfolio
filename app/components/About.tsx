@@ -10,6 +10,25 @@ interface ExperienceItem {
   desc: string;
 }
 
+interface LanguageItem {
+  name: string;
+  badge: string;
+  desc: string;
+}
+
+const languages: LanguageItem[] = [
+  {
+    name: "Bahasa Indonesia",
+    badge: "Native",
+    desc: "Bahasa utama untuk komunikasi harian dan profesional.",
+  },
+  {
+    name: "English",
+    badge: "Intermediate",
+    desc: "Digunakan aktif dalam perkuliahan harian dan komunikasi akademik di President University.",
+  },
+];
+
 // EXPERIENCE: data asli Indriyani. Isi [Nama Institusi] dan [Tahun] dengan detail course. Cek ulang tahun project.
 const experiences: ExperienceItem[] = [
   {
@@ -169,6 +188,42 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Bahasa / Languages (Fade-up delay: 0.45s) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+                <h3 className="text-xs font-semibold tracking-[0.25em] text-blue-400 uppercase">
+                  BAHASA
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.name}
+                    className="glass-card rounded-2xl p-4 sm:p-5 border border-white/10 hover:border-blue-500/30 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(59,130,246,0.15)] transition-all duration-300 flex flex-col justify-start"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <h4 className="font-semibold text-white text-sm sm:text-base">
+                        {lang.name}
+                      </h4>
+                      <span className="font-mono text-xs font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 rounded-full">
+                        {lang.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {lang.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* Education (Fade-up delay: 0.5s) */}
