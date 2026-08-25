@@ -60,7 +60,7 @@ const experiences: ExperienceItem[] = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 px-4 sm:px-6 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
       {/* Decorative orbs */}
       <div className="orb w-[420px] h-[420px] -top-20 -left-32 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
       <div className="orb w-[360px] h-[360px] bottom-0 -right-24 rounded-full bg-indigo-600/10 blur-3xl pointer-events-none" />
@@ -68,15 +68,15 @@ export default function About() {
       <div className="relative max-w-6xl mx-auto min-w-0">
         {/* Section Header (Fade-up delay: 0s) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0 }}
-          className="mb-14 md:mb-16"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+          className="mb-10 md:mb-12"
         >
           <div className="section-line mb-4">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500">
-              01 — ABOUT ME
+              01 - ABOUT ME
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -87,10 +87,10 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-10 md:gap-12 items-start">
           {/* Photo & IG Pill Column (Fade-up delay: 0.2s) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative group w-full max-w-[240px] sm:max-w-[260px] mx-auto md:mx-0 md:max-w-none min-w-0"
           >
             {/* Soft ambient glow behind photo */}
@@ -124,13 +124,13 @@ export default function About() {
           </motion.div>
 
           {/* Right Column: Bio + Quick Facts + Experience */}
-          <div className="space-y-10 min-w-0">
+          <div className="space-y-8 min-w-0">
             {/* Bio (Fade-up delay: 0.2s) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
               <h3 className="text-xl md:text-2xl font-semibold mb-5 text-white leading-snug">
                 Mahasiswi Computer Science yang antusias membangun solusi digital dari nol.
@@ -159,10 +159,10 @@ export default function About() {
 
             {/* Quick facts (Fade-up delay: 0.4s) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
               className="grid grid-cols-3 gap-2.5 sm:gap-3 md:gap-4"
             >
               {[
@@ -192,10 +192,10 @@ export default function About() {
 
             {/* Bahasa / Languages (Fade-up delay: 0.45s) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
@@ -228,10 +228,10 @@ export default function About() {
 
             {/* Education (Fade-up delay: 0.5s) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
@@ -262,10 +262,10 @@ export default function About() {
 
             {/* Experience timeline (Fade-up delay: 0.6s) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
               className="pt-2"
             >
               <div className="flex items-center gap-3 mb-6">

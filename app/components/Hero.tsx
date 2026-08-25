@@ -76,9 +76,9 @@ export default function Hero() {
         </div>
 
         {/* Description */}
-        <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-12 animate-fade-up" style={{ animationDelay: "0.3s", opacity: 0, animationFillMode: "forwards" }}>
+        <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8 animate-fade-up" style={{ animationDelay: "0.3s", opacity: 0, animationFillMode: "forwards" }}>
           Passionate about crafting elegant solutions to complex problems. 
-          I build performant, accessible, and beautiful digital experiences — 
+          I build performant, accessible, and beautiful digital experiences - 
           from algorithms to interfaces.
         </p>
 
@@ -101,7 +101,7 @@ export default function Hero() {
         </div>
 
         {/* Featured project mini-cards */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto w-full">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto w-full">
           {[
             {
               icon: "◈",
@@ -128,13 +128,13 @@ export default function Hero() {
               color: "from-purple-600/20 to-pink-600/10",
             },
           ].map((proj) => (
-            /* Float wrapper — handles vertical drift only, no hover transform */
+            /* Float wrapper - handles vertical drift only, no hover transform */
             <div
               key={proj.title}
               className="animate-float"
               style={{ animationDelay: proj.delay }}
             >
-              {/* Inner card — handles hover elevation independently */}
+              {/* Inner card - handles hover elevation independently */}
               <div
                 className={`
                   relative overflow-hidden rounded-2xl p-4 text-left cursor-default

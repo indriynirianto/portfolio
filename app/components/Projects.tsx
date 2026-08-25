@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -28,7 +29,7 @@ const projects = [
   {
     title: "Sahabat Cafe",
     description:
-      "Official website for Sahabat Café, the campus café right next to President University. Built as a first-semester team project — showcasing the menu, the vibe, and bringing the campus hangout online.",
+      "Official website for Sahabat Café, the campus café right next to President University. Built as a first-semester team project - showcasing the menu, the vibe, and bringing the campus hangout online.",
     tags: ["HTML", "CSS", "JavaScript"],
     category: "Full Stack",
     link: "#",
@@ -83,7 +84,7 @@ const projects = [
   {
     title: "OS Scheduler Sim",
     description:
-      "A CPU scheduling algorithm simulator for OS education — simulates FCFS, SJF, Round Robin, and Priority scheduling with Gantt charts and metrics.",
+      "A CPU scheduling algorithm simulator for OS education - simulates FCFS, SJF, Round Robin, and Priority scheduling with Gantt charts and metrics.",
     tags: ["C++", "Python", "Matplotlib"],
     category: "Systems",
     link: "#",
@@ -111,28 +112,40 @@ export default function Projects() {
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="relative py-28 px-6">
+    <section id="projects" className="relative py-16 sm:py-20 px-6">
       {/* Ambient orb */}
       <div className="orb w-[500px] h-[500px] bg-blue-600/6 top-0 right-0 z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+          className="mb-12"
+        >
           <div className="section-line mb-4">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500">
-              03 — Work
+              03 - Work
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             <span className="gradient-heading">Selected Projects</span>
           </h2>
           <p className="mt-4 text-slate-500 max-w-lg text-base">
-            A showcase of what I&apos;ve built — ranging from systems-level simulators to full-stack applications.
+            A showcase of what I&apos;ve built - ranging from systems-level simulators to full-stack applications.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          className="flex flex-wrap gap-2 mb-8"
+        >
           {categories.map((cat) => (
             <button
               key={cat}
@@ -146,75 +159,88 @@ export default function Projects() {
               {cat}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project) => (
-            <a
+          {filtered.map((project, index) => (
+            <motion.div
               key={project.title}
-              href={project.link}
-              className={`glass-card rounded-3xl overflow-hidden group relative flex flex-col ${
-                project.featured ? "" : ""
-              }`}
+              layout
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.08 }}
+              className="flex flex-col h-full"
             >
-              {/* Card gradient top */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none`}
-              />
+              <a
+                href={project.link}
+                className="glass-card rounded-3xl overflow-hidden group relative flex flex-col h-full"
+              >
+                {/* Card gradient top */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none`}
+                />
 
-              <div className="relative z-10 p-6 flex flex-col h-full">
-                {/* Top row */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-white/8 to-white/2 border border-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300">
-                    {project.icon}
+                <div className="relative z-10 p-6 flex flex-col h-full">
+                  {/* Top row */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-white/8 to-white/2 border border-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300">
+                      {project.icon}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="project-tag">{project.category}</span>
+                      {project.featured && (
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/25 text-blue-400">
+                          Featured
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="project-tag">{project.category}</span>
-                    {project.featured && (
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/25 text-blue-400">
-                        Featured
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-200 transition-colors leading-snug">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-2.5 py-1 rounded-lg bg-white/4 border border-white/6 text-slate-400 font-medium"
+                      >
+                        {tag}
                       </span>
-                    )}
+                    ))}
+                  </div>
+
+                  {/* Arrow link */}
+                  <div className="flex items-center gap-1.5 text-blue-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    View project
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-200 transition-colors leading-snug">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2.5 py-1 rounded-lg bg-white/4 border border-white/6 text-slate-400 font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Arrow link */}
-                <div className="flex items-center gap-1.5 text-blue-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
-                  View project
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </div>
-            </a>
+              </a>
+            </motion.div>
           ))}
         </div>
 
         {/* GitHub link */}
-        <div className="mt-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          className="mt-10 text-center"
+        >
           <a
             href="https://github.com"
             target="_blank"
@@ -226,7 +252,7 @@ export default function Projects() {
             </svg>
             See more on GitHub
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

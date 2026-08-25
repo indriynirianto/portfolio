@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const skillCategories = [
   {
     title: "Languages",
@@ -36,61 +38,78 @@ const colorMap: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-6">
+    <section id="skills" className="relative py-16 sm:py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+          className="mb-10 md:mb-12"
+        >
           <div className="section-line mb-4">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500">
-              02 — Expertise
+              02 - Expertise
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             <span className="gradient-heading">Skills &amp; Technologies</span>
           </h2>
           <p className="mt-4 text-slate-500 max-w-lg text-base">
-            A curated toolkit I&apos;ve built across my CS journey — from low-level systems to cloud-native development.
+            A curated toolkit I&apos;ve built across my CS journey - from low-level systems to cloud-native development.
           </p>
-        </div>
+        </motion.div>
 
         {/* Skill grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {skillCategories.map((cat) => (
-            <div
+          {skillCategories.map((cat, index) => (
+            <motion.div
               key={cat.title}
-              className="glass-card rounded-3xl p-7 group"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
             >
-              {/* Category header */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg">
-                  {cat.emoji}
+              <div className="glass-card rounded-3xl p-7 group h-full">
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg">
+                    {cat.emoji}
+                  </div>
+                  <h3 className="font-semibold text-white text-base tracking-wide">
+                    {cat.title}
+                  </h3>
                 </div>
-                <h3 className="font-semibold text-white text-base tracking-wide">
-                  {cat.title}
-                </h3>
-              </div>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className={`skill-badge ${colorMap[cat.color]}`}
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {/* Badges */}
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className={`skill-badge ${colorMap[cat.color]}`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom decorative line */}
-        <div className="mt-16 flex items-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          className="mt-12 flex items-center gap-4"
+        >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500/40" />
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

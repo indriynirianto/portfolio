@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { motion } from "framer-motion";
 
 const socials = [
   {
@@ -67,146 +68,173 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 px-6">
+    <section id="contact" className="relative py-16 sm:py-20 px-6">
       {/* Ambient */}
       <div className="orb w-[400px] h-[400px] bg-blue-600/8 -bottom-20 left-1/2 -translate-x-1/2 z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+          className="mb-10 md:mb-12"
+        >
           <div className="section-line mb-4">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500">
-              04 — Contact
+              04 - Contact
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             <span className="gradient-heading">Let&apos;s Connect</span>
           </h2>
           <p className="mt-4 text-slate-500 max-w-lg text-base">
-            Whether it&apos;s a collaboration, internship opportunity, or just a chat about tech — I&apos;d love to hear from you.
+            Whether it&apos;s a collaboration, internship opportunity, or just a chat about tech - I&apos;d love to hear from you.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Left — Form */}
-          <div className="glass-card rounded-3xl p-8">
-            <h3 className="text-lg font-semibold text-white mb-6">Send a message</h3>
-            {status === "sent" ? (
-              <div className="flex flex-col items-center justify-center h-48 gap-4">
-                <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
-                  </svg>
+          {/* Left - Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          >
+            <div className="glass-card rounded-3xl p-8">
+              <h3 className="text-lg font-semibold text-white mb-6">Send a message</h3>
+              {status === "sent" ? (
+                <div className="flex flex-col items-center justify-center h-48 gap-4">
+                  <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+                    <svg className="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <p className="text-slate-300 text-sm font-medium">Message sent! I will get back to you soon.</p>
+                  <button onClick={() => setStatus("idle")} className="text-xs text-blue-400 hover:text-blue-300 underline transition-colors">
+                    Send another
+                  </button>
                 </div>
-                <p className="text-slate-300 text-sm font-medium">Message sent! I will get back to you soon.</p>
-                <button onClick={() => setStatus("idle")} className="text-xs text-blue-400 hover:text-blue-300 underline transition-colors">
-                  Send another
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Name</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      className="input-glass"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    />
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Name</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your name"
+                        className="input-glass"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Email</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="you@example.com"
+                        className="input-glass"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      />
+                    </div>
                   </div>
                   <div>
-                    <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Email</label>
-                    <input
-                      type="email"
+                    <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Message</label>
+                    <textarea
                       required
-                      placeholder="you@example.com"
-                      className="input-glass"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      rows={5}
+                      placeholder="Tell me about your project, opportunity, or just say hi..."
+                      className="input-glass resize-none"
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-slate-500 mb-1.5 block tracking-wide">Message</label>
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Tell me about your project, opportunity, or just say hi..."
-                    className="input-glass resize-none"
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="btn-electric mt-1 flex items-center justify-center gap-2 disabled:opacity-60"
-                >
-                  {status === "sending" ? (
-                    <>
-                      <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="btn-electric mt-1 flex items-center justify-center gap-2 disabled:opacity-60"
+                  >
+                    {status === "sending" ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+          </motion.div>
 
-          {/* Right — Socials + info */}
+          {/* Right - Socials + info */}
           <div className="flex flex-col gap-6">
             {/* Info card */}
-            <div className="glass-card rounded-3xl p-7">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
-                <span className="text-sm font-medium text-slate-300">Open to opportunities</span>
-              </div>
-              <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                Currently seeking internships and project collaborations. Based in Indonesia — available for remote roles worldwide.
-              </p>
-              <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-xs text-slate-600 font-medium uppercase tracking-wider mb-1">Response time</div>
-                  <div className="text-sm text-slate-300 font-medium">Within 24 hours</div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+            >
+              <div className="glass-card rounded-3xl p-7">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
+                  <span className="text-sm font-medium text-slate-300">Open to opportunities</span>
                 </div>
-                <div>
-                  <div className="text-xs text-slate-600 font-medium uppercase tracking-wider mb-1">Timezone</div>
-                  <div className="text-sm text-slate-300 font-medium">WIB (UTC+7)</div>
+                <p className="text-slate-500 text-sm mt-3 leading-relaxed">
+                  Currently seeking internships and project collaborations. Based in Indonesia - available for remote roles worldwide.
+                </p>
+                <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-xs text-slate-600 font-medium uppercase tracking-wider mb-1">Response time</div>
+                    <div className="text-sm text-slate-300 font-medium">Within 24 hours</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-600 font-medium uppercase tracking-wider mb-1">Timezone</div>
+                    <div className="text-sm text-slate-300 font-medium">WIB (UTC+7)</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Social links */}
             <div className="grid grid-cols-2 gap-3">
-              {socials.map((s) => (
-                <a
+              {socials.map((s, index) => (
+                <motion.div
                   key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`glass-card rounded-2xl p-4 flex flex-col gap-2 transition-all duration-300 ${s.glow} group`}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 + index * 0.08 }}
                 >
-                  <div className={`text-slate-500 group-hover:scale-110 transition-all duration-300 ${s.color}`}>
-                    {s.icon}
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white/70">{s.label}</div>
-                    <div className="text-xs text-slate-600 truncate">{s.handle}</div>
-                  </div>
-                </a>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`glass-card rounded-2xl p-4 flex flex-col gap-2 transition-all duration-300 ${s.glow} group h-full`}
+                  >
+                    <div className={`text-slate-500 group-hover:scale-110 transition-all duration-300 ${s.color}`}>
+                      {s.icon}
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-white/70">{s.label}</div>
+                      <div className="text-xs text-slate-600 truncate">{s.handle}</div>
+                    </div>
+                  </a>
+                </motion.div>
               ))}
             </div>
           </div>
