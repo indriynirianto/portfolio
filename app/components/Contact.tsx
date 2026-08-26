@@ -77,7 +77,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
           className="mb-10 md:mb-12"
         >
@@ -99,7 +99,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
             <div className="glass-card rounded-3xl p-8">
@@ -186,7 +186,7 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
             >
               <div className="glass-card rounded-3xl p-7">
@@ -217,7 +217,7 @@ export default function Contact() {
                   key={s.label}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 + index * 0.08 }}
                 >
                   <a

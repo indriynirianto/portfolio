@@ -21,7 +21,10 @@ export default function StarField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animId: number;
+    let animId: number = 0;
+    let isRunning = false;
+    let isIntersecting = true;
+    let isVisible = document.visibilityState === "visible";
     let stars: Star[] = [];
 
     const resize = () => {
@@ -31,7 +34,7 @@ export default function StarField() {
     };
 
     const initStars = () => {
-      stars = Array.from({ length: 160 }, () => ({
+      stars = Array.from({ length: 120 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 1.5 + 0.2,
@@ -42,10 +45,10 @@ export default function StarField() {
       }));
     };
 
-    let t = 0;
-    const draw = () => {
+    const draw = (_timestamp: number) => {
+      if (!isRunning) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      t += 1;
 
       stars.forEach((star) => {
         star.twinklePhase += star.twinkleSpeed;
@@ -66,13 +69,51 @@ export default function StarField() {
       animId = requestAnimationFrame(draw);
     };
 
-    resize();
-    draw();
+    const start = () => {
+      if (isRunning || !isIntersecting || !isVisible) return;
+      isRunning = true;
+      animId = requestAnimationFrame(draw);
+    };
 
+    const stop = () => {
+      if (!isRunning) return;
+      isRunning = false;
+      cancelAnimationFrame(animId);
+    };
+
+    const handleVisibilityChange = () => {
+      isVisible = document.visibilityState === "visible";
+      if (isVisible && isIntersecting) {
+        start();
+      } else {
+        stop();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting;
+        if (isIntersecting && isVisible) {
+          start();
+        } else {
+          stop();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    resize();
+    observer.observe(canvas);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("resize", resize);
+
+    start();
+
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      observer.disconnect();
+      stop();
     };
   }, []);
 

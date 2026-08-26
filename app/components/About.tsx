@@ -70,7 +70,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0 }}
           className="mb-10 md:mb-12"
         >
@@ -89,7 +89,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative group w-full max-w-[240px] sm:max-w-[260px] mx-auto md:mx-0 md:max-w-none min-w-0"
           >
@@ -99,7 +99,7 @@ export default function About() {
             {/* Photo frame with glassmorphism & fixed 3/4 aspect ratio */}
             <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl aspect-[3/4] w-full">
               <Image
-                src="/foto-indri.jpg"
+                src="/foto-indri.webp"
                 alt="Foto profil Indriyani Putri Dwi Irianto - Computer Science Student & Web Developer"
                 width={400}
                 height={533}
@@ -129,7 +129,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
               <h3 className="text-xl md:text-2xl font-semibold mb-5 text-white leading-snug">
@@ -161,7 +161,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
               className="grid grid-cols-3 gap-2.5 sm:gap-3 md:gap-4"
             >
@@ -194,7 +194,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
             >
               <div className="flex items-center gap-3 mb-6">
@@ -230,7 +230,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
             >
               <div className="flex items-center gap-3 mb-6">
@@ -264,7 +264,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
               className="pt-2"
             >
